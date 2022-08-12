@@ -15,7 +15,7 @@ pool:
 
 steps:
 - task: AzureCLI@2
-  name: 'Install Bicep'
+  name: 'InstallBicep'
   inputs:
     azureSubscription: $(azureServiceConnection)
     scriptType: bash
