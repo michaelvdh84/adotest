@@ -23,10 +23,4 @@ steps:
     inlineScript: |
       start-process az --version
       az bicep install
-      az bicep version
-- task: AzurePowerShell@5
-  name: 'CreateRG'
-  inputs:
-    azureSubscription: $(azureServiceConnection)
-- powershell:
-      Write-host "Test PS"
+      echo "##vso[task.setvariable variable=version;]$(az bicep version --output tsv)"
