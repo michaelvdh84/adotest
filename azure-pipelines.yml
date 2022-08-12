@@ -22,5 +22,5 @@ steps:
     inlineScript: |
       az --version
       az bicep install
-      az bicep version
-      az deployment sub create --location $(location) --template-file $(templateFile) --parameters location=$(location) rgName=$(resourceGroupName)
+      $output = $(az bicep version)
+      echo $output
