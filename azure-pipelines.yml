@@ -21,6 +21,7 @@ steps:
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
-      start-process az --version
+      az --version
       az bicep install
-      echo "##vso[task.setvariable variable=version;]$(az bicep version --output tsv)"
+      $bicepVersion = & az bicep version
+      Write-output("##vso[task.setvariable variable=bicepVersion:]$bicepVersion")
