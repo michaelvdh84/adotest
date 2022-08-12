@@ -25,4 +25,12 @@ steps:
       az bicep install
       bicepVersion=`az bicep version -o tsv`
       echo Custom Echo : $bicepVersion
-#echo "##vso[task.setvariable variable=bicepVersion;]$bicepVersion"
+      echo "##vso[task.setvariable variable=bicepVersion;]$bicepVersion"
+- task: AzureCLI@2
+  name: 'CheckVariable'
+  inputs:
+    azureSubscription: $(azureServiceConnection)
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      echo $bicepVersion
