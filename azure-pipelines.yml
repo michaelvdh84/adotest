@@ -21,4 +21,4 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az group create --name $(resourceGroupName) --location $(location)
+      az deployment sub create --name "Test ADI Bicep" --template-file "main.bicep" --parameters location=$(location) rgName=$(resourcegroupName)
