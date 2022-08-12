@@ -21,7 +21,12 @@ steps:
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
-      az --version
+      start-process az --version
       az bicep install
       az bicep version
-      Write-host "Test Output"
+- task: AzurePowerShell@5
+  name: 'CreateRG'
+  inputs:
+    azureSubscription: $(azureServiceConnection)
+- powershell:
+      Write-host "Test PS"
