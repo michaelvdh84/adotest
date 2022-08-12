@@ -21,5 +21,5 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
+      az bicep install
       az bicep version
-      az deployment sub create --name "Test ADI Bicep" --location $(location) --template-file @main.bicep --parameters location=$(location) rgName=$(resourcegroupName)
