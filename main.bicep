@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
-param rgName string = 'rg-adoBicep'
-param location string = 'westeurope'
+param rgName string
+param location string
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName
