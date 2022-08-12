@@ -15,6 +15,7 @@ pool:
 
 steps:
 - task: AzureCLI@2
+  name: Bicep
   inputs:
     azureSubscription: $(azureServiceConnection)
     scriptType: bash
@@ -22,5 +23,5 @@ steps:
     inlineScript: |
       az --version
       az bicep install
-      $output = $(az bicep version)
-      echo $output
+      az bicep version
+- script: echo $(Bicep.out)    
