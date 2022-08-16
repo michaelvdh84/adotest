@@ -14,5 +14,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: | 
-      $host = $env:HOSTNAME
-      Write-hot $host
+      Write-Host "Check Username"
+
+      $host = $env:USERNAME
+      Write-host $host
+      Get-module -listavaible
