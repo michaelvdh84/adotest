@@ -16,6 +16,6 @@ steps:
     script: | 
       Write-Host "Check Username"
 
-      $host = $env:USERNAME
-      Write-host $host
-      Get-module -listavaible
+      $usr = $env:USERNAME
+      Write-host $usr
+      Get-module -listavailable
