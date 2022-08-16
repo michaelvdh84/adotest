@@ -26,7 +26,7 @@ steps:
       bicepVersion=`az bicep version -o tsv`
       echo $bicepVersion
       echo "##vso[task.setvariable variable=bicepVersion;]$bicepVersion"
-      rgCreation=`az deployment sub create --location $(location) --template-file $(templateFile) --parameters location=$(location) rgName=$(resourceGroupName) -o tsv`
+      rgCreation=`az deployment sub create --location $(location) --template-file $(templateFile) --parameters location=$(location) rgName=$(resourceGroupName) -o tsv --query [].[location]`
       echo $rgCreation   
       echo "##vso[task.setvariable variable=rgCreation;]$rgCreation"
 - task: AzureCLI@2
