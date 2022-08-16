@@ -26,9 +26,8 @@ steps:
       bicepVersion=`az bicep version -o tsv`
       echo $bicepVersion
       echo "##vso[task.setvariable variable=bicepVersion;]$bicepVersion"
-      rgCreation=`az deployment sub create --location $(location) --template-file $(templateFile) --parameters location=$(location) rgName=$(resourceGroupName) -o tsv --query '[].[id]'`
-      echo $rgCreation   
-      echo "##vso[task.setvariable variable=rgCreation;]$rgCreation"
+      rgCreation=`az deployment sub create --location $(location) --template-file $(templateFile) --parameters location=$(location) rgName=$(resourceGroupName) -o tsv`
+      echo $rgCreation
 - task: AzureCLI@2
   name: 'CheckVariable'
   inputs:
@@ -37,4 +36,3 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       echo "$(bicepVersion)"
-      echo "$(rgCreation)"
