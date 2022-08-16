@@ -16,3 +16,5 @@ steps:
     script: | 
       Write-host "Trying to install Az Module"
       Install-Module Az -Scope AllUsers -AllowClobber -Force
+      Import-Module Az
+      Get-Module -ListAvailable
