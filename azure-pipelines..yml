@@ -30,7 +30,7 @@ steps:
       echo $rgCreation
       rgList=`az group list -o tsv --query [].[name]`
       echo $rgList
-      echo "##vso[task.setvariable variable=bicepVersion;]$rgList"
+      echo "##vso[task.setvariable variable=rgList;]$rgList"
 
 - task: AzureCLI@2
   name: 'CheckVariable'
