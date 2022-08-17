@@ -14,5 +14,6 @@ steps:
   inputs:
     azureSubscription: 'sp-ado'
     ScriptType: inlineScript
+    azurePowerShellVersion: LatestVersion
     Inline: |
       Get-Module -ListAvailable
