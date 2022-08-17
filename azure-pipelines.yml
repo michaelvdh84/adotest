@@ -10,11 +10,11 @@ pool:
   vmImage: $(vmImageName)
 
 steps:
-- task: PowerShell@2
+- task: AzurePowerShell@5
   inputs:
-    targetType: 'inline'
-    script: | 
-      Write-host "Trying to install Az Module"
-      Install-Module Az -Scope AllUsers -AllowClobber -Force
-      Import-Module Az
+    azureSubscription: 'sp-ado'
+    ScriptType: inlineScript
+    Inline: |
+      write-host "Test Az PS"
       Get-Module -ListAvailable
+      
