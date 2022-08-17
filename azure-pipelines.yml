@@ -16,4 +16,6 @@ steps:
     ScriptType: inlineScript
     azurePowerShellVersion: LatestVersion
     Inline: |
+      Write-Host "Test"
       Get-Module -ListAvailable
+      az version
